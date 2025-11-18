@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="GalleryAvalonia.PaintingDisplay">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Label HorizontalAlignment="Center" VerticalAlignment="Center">Name:</Label>
+		<Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">Creator:</Label>
+		<Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">Condition:</Label>
+		<Label HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="3">Price:</Label>
+		<Label HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Content="{Binding Name}"/>
+		<Label HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Content="{Binding Creator}"/>
+		<Label HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Content="{Binding Condition}"/>
+		<Label HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" Content="{Binding Price}"/>
+		<Image HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="3" Grid.RowSpan="4" Source="{Binding CardImage}"/>
+	</Grid>
+</UserControl>
