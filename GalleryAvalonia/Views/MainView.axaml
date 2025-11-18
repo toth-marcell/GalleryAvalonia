@@ -6,8 +6,6 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="GalleryAvalonia.Views.MainView"
              xmlns:local="using:GalleryAvalonia">
-
-
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition/>
@@ -15,11 +13,18 @@
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition/>
-			<RowDefinition/>
-			<RowDefinition/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
 		</Grid.RowDefinitions>
-		<ItemsControl Padding="25" Grid.ColumnSpan="2">
-			<local:PaintingDisplay/>
+		<ItemsControl Padding="25" Grid.ColumnSpan="2" ItemsSource="{Binding Paintings}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<local:PaintingDisplay/>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
 		</ItemsControl>
+		<Label Grid.Row="1" Grid.ColumnSpan="2" Content="{Binding PaintingNumber}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Grid.Row="2" IsEnabled="{Binding NotFirst}" Command="{Binding PreviousCommand}" HorizontalAlignment="Center">Previous</Button>
+		<Button Grid.Row="2" Grid.Column="1" IsEnabled="{Binding NotLast}" Command="{Binding NextCommand}" HorizontalAlignment="Center">Next</Button>
 	</Grid>
 </UserControl>

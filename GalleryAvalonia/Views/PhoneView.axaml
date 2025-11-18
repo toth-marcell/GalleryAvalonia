@@ -2,9 +2,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="GalleryAvalonia.PhoneView">
-    <Grid>
-		
-    </Grid>
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="800"
+             x:Class="GalleryAvalonia.PhoneView"
+			 xmlns:local="using:GalleryAvalonia">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+		<ItemsControl Padding="25" Grid.ColumnSpan="2" ItemsSource="{Binding Paintings}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<local:PaintingDisplay/>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+		<Label Grid.Row="1" Grid.ColumnSpan="2" Content="{Binding PaintingNumber}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button Grid.Row="2" IsEnabled="{Binding NotFirst}" Command="{Binding PreviousCommand}" HorizontalAlignment="Center" Padding="30">Previous</Button>
+		<Button Grid.Row="2" Grid.Column="1" IsEnabled="{Binding NotLast}" Command="{Binding NextCommand}" HorizontalAlignment="Center" Padding="30">Next</Button>
+	</Grid>
 </UserControl>
