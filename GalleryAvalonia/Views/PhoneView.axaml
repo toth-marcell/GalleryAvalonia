@@ -18,7 +18,7 @@
 		<ItemsControl Padding="25" Grid.ColumnSpan="2" ItemsSource="{Binding Paintings}">
 			<ItemsControl.ItemTemplate>
 				<DataTemplate>
-					<local:PaintingDisplay/>
+					<local:PaintingDisplayMobile/>
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>
 		</ItemsControl>
